@@ -24,3 +24,6 @@ prod-image:
 
 publish-prod-image:
 	docker push $(PROD_DOCKER_IMAGE)
+	
+sync-kline:
+	cd public; git clone git@github.com:fluidex/tradingView.git

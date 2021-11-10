@@ -1,0 +1,38 @@
+.wrap {
+}
+
+.head {
+  padding: 10px 10px;
+  color: #fff;
+
+  .title {
+    display: inline-block;
+    font-size: 18px;
+    user-select: none;
+  }
+
+  .subTitle {
+    margin-left: 10px;
+    font-size: 12px;
+    user-select: none;
+  }
+
+  .more {
+    float: right;
+    text-decoration: underline;
+    transition: opacity 300ms;
+    user-select: none;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.5;
+    }
+  }
+}
+
+.tableWrap {
+  min-height: 280px;
+  background: #292d36;
+  overflow-x: auto;
+  padding-bottom: 0;
+}

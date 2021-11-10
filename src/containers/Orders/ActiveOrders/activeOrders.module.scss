@@ -1,0 +1,39 @@
+.wrap {
+  min-height: 300px;
+  background: #292d36;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.thead {
+  &:after {
+    display: none;
+  }
+}
+
+.cancel-all {
+  transition: opacity 300ms;
+  user-select: none;
+  color: #1ad4ff;
+  font-size: 14px;
+  position: absolute;
+  top: -45px;
+  right: 20px;
+  height: 100%;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.cancel {
+  color: #1ad4ff;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.active-orders-dialog {
+  width: 400px;
+  padding: 5px 20px;
+  line-height: 1.4;
+  text-align: center;
+}

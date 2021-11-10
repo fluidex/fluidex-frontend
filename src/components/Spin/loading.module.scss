@@ -1,0 +1,119 @@
+.spin {
+  position: absolute;
+  display: none;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+
+  &.running {
+    position: static;
+    display: inline-block;
+    opacity: 1;
+  }
+}
+
+.nested {
+  position: relative;
+
+  > div > .spin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+
+    .dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    .tips {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      font-size: 15px;
+    }
+
+    &.show-tips .dot {
+      margin-top: -20px;
+    }
+  }
+
+  .container {
+    position: relative;
+    transition: opacity 0.3s;
+
+    &.hasOverlay {
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background: #292d36;
+        transition: all 0.3s;
+        content: "";
+        pointer-events: none;
+      }
+    }
+
+    &.blur {
+      clear: both;
+      overflow: hidden;
+      opacity: 0.5;
+      user-select: none;
+      pointer-events: none;
+
+      &::after {
+        opacity: 0.6;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+.show-tips .tips {
+  display: block;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.ldr {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.ldr-blk {
+  height: 35%;
+  width: 35%;
+  animation: pulse 0.75s ease-in infinite alternate;
+  background-color: darken(#52d6ff, 15%);
+}
+
+.an_delay {
+  animation-delay: 0.75s;
+}

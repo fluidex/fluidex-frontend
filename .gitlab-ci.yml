@@ -1,0 +1,45 @@
+image: ubuntu:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  image: node:latest 
+  only:
+    - master
+#  tags:
+#    - exchange-front
+  script: 
+    - npm install
+    - PUBLIC_URL=/exchange API_PREFIX="http://fluidex.app/" npm run build
+#  artifacts:
+#    paths:
+#       - build/
+#
+#test_job:
+#  stage: test
+#  script:
+#    - echo "Test"
+
+deploy_job:
+  stage: deploy
+  only:
+    - master
+#  when: manual
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo ${SSH_KEY_BASE64} | base64 --decode)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - ssh centos@exchange "cd /var/www/exchange/ && git reset --hard && git pull && npm install && PUBLIC_URL=/exchange API_PREFIX="http://fluidex.app/" npm run build"
+    - ssh centos@exchange "sudo nginx -s reload"

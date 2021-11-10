@@ -1,0 +1,17 @@
+.descriptions {
+  :global {
+    .ant-descriptions-title {
+      color: #c8c9da;
+    }
+
+    .ant-descriptions-view {
+      .ant-descriptions-item-label {
+        color: rgba(255, 255, 255, 0.6);
+        background-color: #292d36;
+      }
+      .ant-descriptions-item-content {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+}

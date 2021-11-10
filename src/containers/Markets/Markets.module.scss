@@ -1,0 +1,77 @@
+.container {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 1200px;
+}
+.pageHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .pageHeader {
+    color: #c8c9d9;
+  }
+}
+
+.currentBestBlockHeight {
+  text-align: right;
+}
+
+.thead {
+  text-align: left;
+}
+.marketsList {
+  .increase {
+    color: #49c5b6;
+  }
+  .decrease {
+    color: #ff4d4d;
+  }
+  .nameColumn {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: center;
+    .image {
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+    }
+    .symbol {
+      margin: 0px 0px 0px 16px;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .name {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgb(112, 122, 138);
+    }
+  }
+  .priceColumn {
+    font-size: 16px;
+  }
+  .changeColumn {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .volumeColumn {
+    font-size: 16px;
+    color: #c8c9da;
+  }
+  .marketCapColumn {
+    font-size: 16px;
+    color: #c8c9da;
+  }
+  .actionColumn {
+    text-align: center;
+    .action {
+      font-size: 16px;
+      cursor: pointer;
+      color: rgb(201, 148, 0);
+    }
+  }
+}

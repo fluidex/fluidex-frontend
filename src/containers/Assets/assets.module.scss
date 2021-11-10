@@ -1,0 +1,46 @@
+@import "@/theme/includes.scss";
+
+.tabs .tab {
+  width: 118px;
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 20px 0 10px;
+  color: #fff;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.total {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    text-decoration: underline;
+  }
+}
+
+.box {
+  display: none;
+  background-color: #151732;
+
+  &.active {
+    display: block;
+  }
+}
+
+.totalValue {
+  line-height: 40px;
+  font-size: 20px;
+  text-align: left;
+  color: #f5f5f5;
+}

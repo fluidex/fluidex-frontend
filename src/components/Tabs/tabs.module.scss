@@ -1,0 +1,35 @@
+.tabs {
+  padding: 0 10px;
+  line-height: 40px;
+  border-bottom: 1px solid rgba(#7f7f7f, 0.5);
+
+  .tab {
+    margin: 0 16px 0 10px;
+    display: inline-block;
+    position: relative;
+    color: #c8c9d9;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    // font-family: "DIN-Medium";
+    font-weight: 700;
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+
+    &.active {
+      color: #fff;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 3px;
+        background-image: linear-gradient(90deg, #2899e3, #5ac7ff);
+      }
+    }
+  }
+}

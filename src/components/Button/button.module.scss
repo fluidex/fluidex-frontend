@@ -1,0 +1,70 @@
+.loading {
+  margin-right: 5px;
+}
+
+.button {
+  padding: 0 30px;
+  height: 40px;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  white-space: nowrap;
+  color: #fff;
+  background-image: linear-gradient(90deg, #2899e3, #5ac7ff);
+  transition: all 0.2s ease-in-out;
+  -webkit-appearance: button;
+  outline: 0;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+
+  &.block {
+    width: 100%;
+  }
+
+  &.small {
+    height: 32px;
+    padding: 0 15px;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      90deg,
+      rgba(#2899e3, 0.8),
+      rgba(#5ac7ff, 0.8)
+    );
+  }
+  &:disabled {
+    background: #7f7f7f;
+    border: none;
+    cursor: not-allowed;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.btn-group {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    flex: 1;
+    border-radius: 0;
+    width: auto;
+
+    &:first-child {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  }
+}

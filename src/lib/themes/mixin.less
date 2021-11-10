@@ -1,0 +1,52 @@
+.text-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.box(@value: border-box) {
+  box-sizing: @value;
+}
+
+.icon(@file-path, @width, @height) {
+  background-image: url("@{file-path}");
+  background-size: cover;
+  display: inline-block;
+  width: @width;
+  height: @height;
+}
+
+.radius(@value) {
+  border-radius: @value;
+}
+
+.shadow(@arguments: -4px 8px 20px 0px rgba(0, 0, 0, 0.1)) {
+  box-shadow: @arguments;
+}
+
+// .font-face(@font-family, @file-path, @weight: normal, @style: normal ) {
+//   @font-face {
+//     font-family: @font-family;
+//     font-weight: @weight;
+//     font-style: @style;
+
+//     src: url('../fonts/@{file-path}.ttf');
+//     src: url('@{file-path}.eot');
+//     src: url('@{file-path}.eot?#iefix') format('embedded-opentype'),
+//          url('@{file-path}.woff2') format('woff2'),
+//          url('@{file-path}.woff') format('woff'),
+//          url('@{file-path}.ttf') format('truetype'),
+//          url('@{file-path}.svg#@{font-family}') format('svg');
+//   }
+// }

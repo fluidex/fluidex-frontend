@@ -1,0 +1,99 @@
+:global {
+  .rc-dialog-body {
+    p {
+      font-size: 16px;
+    }
+  }
+  .dialog-btn-list {
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .dialog-btn {
+      min-width: 140px;
+      height: 40px;
+      border-radius: 20px;
+      text-align: center;
+      display: inline-block;
+      margin: 20px 10px 0px;
+      font-size: 16px;
+      font-family: "PingFang SC,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif";
+      font-weight: bold;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .dialog-btn-ok {
+      border: none;
+      background: linear-gradient(to right, #2899e3, #58c6fe);
+      color: #fff !important;
+      padding: 5px 10px;
+      border-radius: 2px !important;
+      border-radius: 4px;
+    }
+    .dialog-btn-cancel {
+      border: 1px solid #5ac7ff;
+      background: transparent;
+      padding: 5px 10px;
+      border-radius: 2px !important;
+      border-radius: 4px;
+      color: #5ac7ff !important;
+    }
+  }
+}
+.wrap {
+}
+
+.tableWrap {
+  min-height: 280px;
+  background: #292d36;
+  overflow-x: auto;
+  padding-bottom: 0;
+}
+
+.head {
+  .title {
+    padding: 10px 10px;
+    font-size: 18px;
+    color: #fff;
+    user-select: none;
+
+    .titleLinks {
+      float: right;
+
+      .titleLink {
+        text-decoration: underline;
+        transition: opacity 300ms;
+        user-select: none;
+        color: #1ad4ff;
+        font-size: 14px;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+.cancel {
+  color: #1ad4ff;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: underline;
+}
+.active-orders-dialog {
+  width: 400px;
+  padding: 5px 20px;
+  line-height: 1.4;
+  text-align: center;
+}

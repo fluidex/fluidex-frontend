@@ -1,0 +1,92 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: exchange-front
+  labels:
+    app: exchange-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange-front
+  template:
+    metadata:
+      labels:
+        app: exchange-front
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: exchange-front
+          image: "fluidex/exchange-front:dev-$COMMIT"
+          ports:
+            - containerPort: 80
+              name: exchange-front
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: exchange-front
+spec:
+  selector:
+    app: exchange-front
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: exchange-front
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: fluidex
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required ^_^"
+  name: exchange-front
+spec:
+  rules:
+    - host: fluidex.team
+      http:
+        paths:
+          - backend:
+              serviceName: exchange-front
+              servicePort: 80
+            path: /exchange
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: exchange-backend
+spec:
+  type: ExternalName
+  externalName: 172.31.26.220
+---
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: fluidex
+  name: exchange-backend
+spec:
+  rules:
+    - host: fluidex.team
+      http:
+        paths:
+          - backend:
+              serviceName: exchange-backend
+              servicePort: 8907
+            path: /exchangeapi/v2
+          - backend:
+              serviceName: exchange-backend
+              servicePort: 8909
+            path: /tradingview
+          - backend:
+              serviceName: exchange-backend
+              servicePort: 1000
+            path: /exchangeapi/v2/management
+          - backend:
+              serviceName: exchange-backend
+              servicePort: 1000
+            path: /exchangeapi/v2/inner

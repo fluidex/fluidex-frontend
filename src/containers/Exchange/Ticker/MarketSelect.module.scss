@@ -1,0 +1,25 @@
+.marketNameDropdown {
+  background-color: #292d35;
+
+  .item {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+
+      & > a {
+        color: #fff;
+      }
+    }
+
+    & > a {
+      color: #c8c9da;
+    }
+  }
+}
+
+.marketNameDropdownTrigger {
+  cursor: pointer;
+  color: #c8c9da;
+  background-color: #292d35;
+  font-size: 16px;
+  font-weight: 700;
+}

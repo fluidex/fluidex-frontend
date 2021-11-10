@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="173px" viewBox="0 0 1920 173" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>编组 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="3.061617e-15%" id="linearGradient-1">
+            <stop stop-color="#2899E3" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#5AC7FF" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="3.061617e-15%" id="linearGradient-2">
+            <stop stop-color="#2899E3" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#5AC7FF" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-27备份-8" transform="translate(0.000000, -788.000000)">
+            <g id="编组-5" transform="translate(-117.000000, 779.000000)">
+                <path d="M0,181.266819 C218.76168,57.0651655 452.975854,18.5637937 702.64252,65.7627035 C1077.14252,136.561068 1303.14252,149.763713 1445.14252,113.766819 C1587.14252,77.7699243 1940.91389,50.4548219 2128.6511,130.661204 C2162.64031,154.644447 2162.64031,171.512985 2128.6511,181.266819 L0,181.266819 Z" id="路径-2" fill="url(#linearGradient-1)"></path>
+                <path d="M117,9.53426901 C216.17617,81.268293 333.058193,117.135305 467.646068,117.135305 C669.527881,117.135305 894.761122,32.6317507 1077.5,50.3954219 C1260.23888,68.1590931 1539.11413,149.824227 1726.25409,133.479766 C1851.01407,122.583459 1967.82366,78.0902033 2076.68286,0 L2076.68286,181 L117,181" id="路径-3" fill="url(#linearGradient-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

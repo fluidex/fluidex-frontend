@@ -1,0 +1,74 @@
+@import "~normalize.css/normalize.css";
+
+@font-face {
+  font-family: noto-roboto;
+  font-weight: 300;
+  // src: url(/fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: noto-roboto;
+  font-weight: 400;
+  // src: url(/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: noto-roboto;
+  font-weight: 700;
+  // src: url(/fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: noto-roboto-bold;
+  // src: url(/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "iconfont";
+  /* project id 1197160 */
+  src: url("//at.alicdn.com/t/font_1197160_e3msige741.eot");
+  src: url("//at.alicdn.com/t/font_1197160_e3msige741.eot?#iefix")
+      format("embedded-opentype"),
+    url("//at.alicdn.com/t/font_1197160_e3msige741.woff2") format("woff2"),
+    url("//at.alicdn.com/t/font_1197160_e3msige741.woff") format("woff"),
+    url("//at.alicdn.com/t/font_1197160_e3msige741.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_1197160_e3msige741.svg#iconfont") format("svg");
+}
+
+body {
+  font-family: noto-roboto, noto-roboto-bold, PingFang SC, Microsoft YaHei,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background-color: #14151a !important;
+  min-width: 1200px !important;
+  color: #ffffff;
+  min-height: 100%;
+  height: initial;
+  // -webkit-font-smoothing: antialiased;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.rc-tooltip-inner {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.rc-tooltip-placement-top .rc-tooltip-arrow,
+.rc-tooltip-placement-topLeft .rc-tooltip-arrow,
+.rc-tooltip-placement-topRight .rc-tooltip-arrow {
+  border-top-color: #000 !important;
+}
+.rc-tooltip-placement-right .rc-tooltip-arrow,
+.rc-tooltip-placement-rightBottom .rc-tooltip-arrow,
+.rc-tooltip-placement-rightTop .rc-tooltip-arrow {
+  border-right-color: #000 !important;
+}

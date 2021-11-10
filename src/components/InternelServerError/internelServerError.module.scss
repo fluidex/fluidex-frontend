@@ -1,0 +1,61 @@
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #14151a;
+  background-image: url("./assets/500-footer.svg");
+  background-position: 50% 100%;
+  background-size: 2155px auto;
+  background-repeat: repeat-x;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 100%;
+    background-image: url("./assets/500-meteor-bg.svg");
+    background-position: 100% 80px;
+    background-size: 534px 569px;
+    background-repeat: no-repeat;
+  }
+}
+
+.exception {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+
+  .imgBlock {
+    flex: 0 0 62.5%;
+    width: 62.5%;
+    padding-right: 152px;
+    zoom: 1;
+
+    .imgEle {
+      width: 417px;
+      height: 350px;
+      float: right;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+      background-image: url("./assets/500-icon.svg");
+    }
+  }
+
+  .content {
+    flex: auto;
+
+    .desc {
+      color: #fff;
+      font-size: 30px;
+      line-height: 28px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .retryBtn {
+  }
+}

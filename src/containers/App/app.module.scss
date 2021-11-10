@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  position: relative;
+  margin: 0 auto;
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}

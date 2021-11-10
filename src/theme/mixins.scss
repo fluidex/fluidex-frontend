@@ -1,0 +1,27 @@
+@mixin tabbar {
+}
+
+@mixin block-title {
+  margin: 0 10px 5px 10px;
+  padding: 5px 0 5px 5px;
+  color: #c8c9d9;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(#c8c9da, 0.3);
+  user-select: none;
+}
+
+@mixin shadow($arguments: 0 2px 4px 0 rgba(0, 0, 0, 0.5)) {
+  box-shadow: $arguments;
+}
+
+@mixin icon($file-path, $width, $height) {
+  background-image: url($file-path);
+  background-size: cover;
+  display: inline-block;
+  width: $width;
+  height: $height;
+}
+
+@mixin radius($value) {
+  border-radius: $value;
+}

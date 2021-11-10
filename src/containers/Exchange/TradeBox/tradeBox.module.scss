@@ -1,0 +1,43 @@
+.sideButtonGroup {
+  padding: 10px 10px;
+
+  .sideButton {
+    // Clear the default background colour declared in the Button component.
+    background-image: none;
+    // Matching the height of the submit button in tradeForm.
+    height: 32px;
+    background-color: transparent;
+    border: 1px solid #7f7f7f;
+
+    // TODO: set up global variables for buy/sell colours.
+    $colour-buy: #2eb77a;
+    $colour-sell: #ed275d;
+    &.sideBuyButton {
+      border-right-color: $colour-sell;
+      &.active {
+        border-color: $colour-buy;
+        background-color: $colour-buy;
+      }
+    }
+    &.sideSellButton {
+      border-left-color: $colour-buy;
+      &.active {
+        border-color: $colour-sell;
+        background-color: $colour-sell;
+      }
+    }
+  }
+}
+
+.content {
+  padding: 10px 0;
+  display: flex;
+}
+
+.panel {
+  margin: 0 20px;
+  flex: 1 1 50%;
+  color: #c8c9da;
+  // font-family: DIN-Light;
+  font-weight: 300;
+}

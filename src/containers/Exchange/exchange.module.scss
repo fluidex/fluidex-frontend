@@ -1,0 +1,110 @@
+.container {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 1200px;
+
+  @media (min-width: 1650px) {
+    max-width: 1650px;
+  }
+
+  .cols {
+    display: flex;
+    height: 100%;
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      &.main {
+        margin-right: 10px;
+        flex: 1 1 60%;
+        // Prevent the main flex child from overflowing.
+        // Ref: https://moduscreate.com/blog/how-to-fix-overflow-issues-in-css-flex-layouts/
+        min-width: 0;
+      }
+
+      &.side {
+        flex-basis: 315px;
+      }
+
+      &.tradeBoxCol {
+        // Ask the trade box column to occupy 100% height.
+        align-self: stretch;
+        height: initial;
+      }
+    }
+  }
+
+  .box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #292d35;
+    overflow: hidden;
+
+    &.shadow:after {
+      content: "";
+      position: absolute;
+      left: -30px;
+      right: -30px;
+      bottom: 0;
+      box-shadow: 0 0 20px 20px #292d35;
+      z-index: 9999;
+    }
+
+    & + .box,
+    & + .cols {
+      margin-top: 10px;
+    }
+
+    &.ticker {
+      height: 53px;
+      flex-shrink: 0;
+    }
+
+    $top-row-base-height: 485px;
+    $bottom-row-base-height: 420px;
+    &.chart {
+      flex-grow: 1;
+      flex-shrink: 0;
+      // Direct child needs an explicit height.
+      height: $top-row-base-height;
+    }
+    &.orderBook {
+      flex: 1 0 $top-row-base-height;
+    }
+
+    &.ordersTab,
+    &.tradeHistory {
+      height: $bottom-row-base-height;
+    }
+
+    &.tradeBox {
+      // Ask the trade box element to occupy 100% height.
+      height: 100%;
+    }
+  }
+}
+
+.noticeWrap {
+  background-color: #292d35;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.suspenseFallback {
+  width: 100%;
+  height: 100%;
+
+  .spin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}

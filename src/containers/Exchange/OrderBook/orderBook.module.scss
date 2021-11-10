@@ -1,0 +1,167 @@
+@import "@/theme/mixins.scss";
+
+.title {
+  @include block-title;
+
+  .precisionSelect {
+    float: right;
+    // Provide enough width to show 1000.
+    width: 83px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+  height: 100%;
+}
+
+.ticker {
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
+  color: #c8c9d9;
+  font-size: 14px;
+  border-top: 1px solid rgba(200, 201, 218, 0.3);
+  border-bottom: 1px solid rgba(200, 201, 218, 0.3);
+  margin: 5px -25px;
+  padding: 10px 20px;
+  order: 2;
+
+  span {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  .red {
+    color: #ed275d;
+  }
+
+  .blue {
+    color: #2eb77a;
+  }
+}
+
+.table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // Suitable for a total component height of 485px.
+  flex-basis: 180px;
+  color: #c8c9da;
+  font-weight: 300;
+  font-size: 12px;
+
+  &.sell {
+    justify-content: flex-end;
+  }
+}
+
+.thead {
+  padding: 0 0 3px;
+  color: #c8c9da;
+  // font-family: DIN-Light;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.tbody {
+  display: flex;
+  flex-direction: column;
+
+  .tr {
+    padding: 0 15px;
+    margin: 0 -15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #393a51;
+    }
+  }
+}
+
+.tr {
+  position: relative;
+  display: flex;
+  height: 20px;
+
+  &.red {
+    .td:first-child {
+      color: #ed275d;
+    }
+
+    .line {
+      background-color: rgba(#ed275d, 0.1);
+    }
+  }
+
+  &.green {
+    .td:first-child {
+      color: #2eb77a;
+    }
+
+    .line {
+      background-color: rgba(#2eb77a, 0.1);
+    }
+  }
+}
+
+.line {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  z-index: 0;
+}
+
+.td,
+.th {
+  flex: 0 0 33.33%;
+  line-height: 20px;
+  text-align: center;
+  z-index: 1;
+
+  &:first-child {
+    text-align: left;
+  }
+}
+
+.th {
+  user-select: none;
+  font-weight: 400;
+}
+
+.td {
+  // font-family: DIN-Medium;
+  font-weight: 700;
+}
+
+.spinWrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.emptyIconWrap {
+  padding: 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  border-radius: 2px;
+  margin-left: 4px;
+  vertical-align: middle;
+  &.green {
+    background-color: #2eb77a;
+  }
+  &.red {
+    background-color: #ed275d;
+  }
+}

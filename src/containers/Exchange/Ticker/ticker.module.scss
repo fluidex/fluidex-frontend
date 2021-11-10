@@ -1,0 +1,47 @@
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px;
+  height: 100%;
+
+  dt {
+    user-select: none;
+  }
+
+  dl,
+  dd,
+  dt {
+    margin: 0;
+  }
+}
+
+.marketName {
+  flex: 1 1 auto;
+}
+
+.item {
+  flex: 1 1 auto;
+}
+
+.itemTit {
+  font-size: 12px;
+  color: #9696a2;
+}
+
+.itemCon {
+  font-size: 14px;
+  color: #fff;
+
+  .gray {
+    color: #9696a2;
+  }
+
+  .red {
+    color: #ed275d;
+  }
+
+  .green {
+    color: #2eb77a;
+  }
+}

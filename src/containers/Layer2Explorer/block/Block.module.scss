@@ -1,0 +1,107 @@
+.container {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 1200px;
+}
+
+.pageHeader {
+  color: #c8c9d9;
+}
+
+.currentBestBlockHeight {
+  text-align: right;
+}
+
+.blockInfo {
+  background-color: #292d36;
+  padding: 28px;
+  color: #a3b4bd;
+  h4 {
+    font-weight: 600;
+    color: #a3b4bd;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.prev {
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.next {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.detailBtn {
+  display: inline-block;
+  padding: 0 10px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+
+  &.disable {
+    .text,
+    .icon {
+      color: #999;
+      cursor: not-allowed;
+    }
+  }
+
+  .text {
+    color: #1ad4ff;
+    font-size: 13px;
+    text-decoration: underline;
+  }
+
+  .icon {
+    display: inline-block;
+    margin-left: 8px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: middle;
+    text-decoration: none;
+    -webkit-text-size-adjust: none;
+    transform: scale(0.4);
+  }
+}
+
+.linkText {
+  color: #1ad4ff;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.expandedRow {
+  padding: 5px 40px;
+  margin: 0 20px;
+  background-color: #151732;
+
+  table {
+    width: 100%;
+
+    thead {
+      padding: 0 50px;
+      user-select: none;
+    }
+
+    th {
+      height: 40px;
+      padding: 0;
+      color: #a3b4bd;
+      font-weight: 400;
+      text-align: left;
+      font-size: 16px;
+      font-size: 14px;
+    }
+
+    td {
+      height: 40px;
+      font-size: 14px;
+      text-align: left;
+    }
+  }
+}

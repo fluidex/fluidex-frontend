@@ -1,0 +1,53 @@
+.pagination-box {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+  &.small {
+    padding: 10px 20px;
+
+    i {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    margin: 0 20px;
+    font-size: 14px;
+
+    span {
+      display: inline-block;
+      text-align: center;
+      min-width: 17px;
+    }
+  }
+
+  i {
+    display: inline-block;
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 23px;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.gray {
+      cursor: not-allowed;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .prev {
+    margin-left: 20px;
+  }
+
+  .next {
+    margin-right: 20px;
+  }
+}

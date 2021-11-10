@@ -1,0 +1,34 @@
+@black-light: #292d36;
+@blue-light: #5ac7ff;
+@blue-lighter: rgba(90, 199, 255, 0.4);
+@blue-dark: #2899e3;
+@blue-warning: #1ad4ff;
+@white: #ffffff;
+@black: #000000;
+@black-light: #292d36;
+@black-dark: #14151a;
+@black-font: #7f7f7f;
+
+.shadow(@arguments: 0 2px 4px 0 rgba(0,0,0,0.5)) {
+  box-shadow: @arguments;
+}
+
+.icon(@file-path, @width, @height) {
+  background-image: url("@{file-path}");
+  background-size: cover;
+  display: inline-block;
+  width: @width;
+  height: @height;
+}
+
+.radius(@value) {
+  border-radius: @value;
+}
+
+.box(@value: border-box) {
+  box-sizing: @value;
+}
+
+* {
+  .box();
+}

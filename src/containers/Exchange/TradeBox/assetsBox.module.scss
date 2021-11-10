@@ -1,0 +1,101 @@
+@import "@/theme/mixins.scss";
+
+.title {
+  @include block-title;
+}
+
+.assetsBoxForm {
+  margin: 0 20px;
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      margin: 0 5px;
+      flex-grow: 1;
+      height: 30px;
+      font-size: 12px;
+      // Otherwise text won't centre.
+      padding: 0px;
+      background-image: none;
+      background-color: rgba($color: transparent, $alpha: 0.3);
+
+      &:hover {
+        background-color: rgba($color: transparent, $alpha: 0.1);
+        color: rgb(240, 185, 11);
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .formItem {
+    margin: 10px 0 12px !important;
+
+    & + .formItem {
+      margin-top: 18px;
+    }
+
+    :global(.ant-form-item-control) {
+      line-height: initial;
+    }
+
+    :global(.ant-form-item-children) {
+      display: flex;
+      align-items: center;
+    }
+
+    &:hover {
+      :global(.ant-form-explain) {
+        display: initial;
+      }
+    }
+
+    :global(.ant-form-explain) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -20px;
+      font-size: 12px;
+      text-align: right;
+      z-index: 1;
+      display: none;
+    }
+
+    :global(.has-error .ant-input),
+    :global(.has-error .ant-input:hover) {
+      border-color: #ff4d4f;
+      // box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.2);
+    }
+
+    .formTit {
+      flex: 0 0 60px;
+      font-size: 12px;
+      color: #8183aa;
+      user-select: none;
+    }
+
+    .inputWrap {
+      position: relative;
+      display: block;
+    }
+
+    .currency {
+      position: absolute;
+      right: 5px;
+      top: 9px;
+      float: right;
+      font-size: 12px;
+      white-space: nowrap;
+      user-select: none;
+      color: #8183aa;
+      font-weight: 300;
+    }
+  }
+}

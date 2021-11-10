@@ -1,0 +1,16 @@
+.fakeSelect {
+  &:global(.ant-select-disabled.ant-select:not(.ant-select-customize-input)) {
+    :global(.ant-select-selector) {
+      color: inherit;
+      cursor: pointer;
+
+      input {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.listItem {
+  cursor: pointer;
+}

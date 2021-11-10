@@ -1,0 +1,49 @@
+.tabs {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  .tab {
+    border: 1px solid transparent;
+    width: 118px;
+    padding: 0 10px;
+    line-height: 28px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #1ad4ff;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:first-child {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    &.active {
+      position: relative;
+      padding: 1px 11px;
+      color: #fff;
+      border: none;
+      background-image: linear-gradient(90deg, #2899e3, #5ac7ff);
+    }
+
+    & + .tab {
+      margin-left: -1px;
+    }
+  }
+}

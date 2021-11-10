@@ -1,0 +1,65 @@
+.filter {
+  padding: 20px 20px;
+  display: flex;
+  border-bottom: 1px solid #7f7f7f;
+  background: #292d36;
+
+  .item {
+    display: flex;
+    align-items: center;
+
+    & + .item {
+      margin-left: 30px;
+    }
+  }
+
+  .itemTit {
+    margin-right: 10px;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 24px;
+    height: 24px;
+
+    &:after {
+      content: ":";
+    }
+  }
+
+  .submitBtn {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .resetBtn {
+    height: 30px;
+    font-size: 14px;
+    background-image: none;
+    color: #919199;
+  }
+
+  :global {
+    .ant-select-focused {
+      box-shadow: none;
+    }
+    .ant-select-selection,
+    .ant-input {
+      background-color: transparent;
+      border-color: #7f7f7f;
+      border-radius: 20px;
+    }
+
+    .ant-input {
+      color: #fff;
+    }
+
+    .ant-select-selection-selected-value {
+      color: #ffffff;
+    }
+
+    .ant-select-arrow,
+    .ant-calendar-range-picker-separator,
+    .ant-calendar-picker-icon {
+      color: #7f7f7f;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>分组 10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#5AC7FF" offset="0%"></stop>
+            <stop stop-color="#2899E3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="弹窗" transform="translate(-441.000000, -180.000000)">
+            <g id="分组-11" transform="translate(161.000000, 124.000000)">
+                <g id="分组-10" transform="translate(280.000000, 56.000000)">
+                    <g id="分组-3-copy" fill="url(#linearGradient-1)">
+                        <rect id="矩形-copy-3" x="0" y="0" width="40" height="40" rx="20"></rect>
+                    </g>
+                    <g id="切换" transform="translate(10.000000, 11.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M19.008568,11.5340246 L6.33436001,11.5340246 L2.92323416,11.5340246 L0,11.5340246 L8.76852933,18 L7.7546086,14.0206914 L19.0111728,14.0206914 L19.008568,11.5340246 L19.008568,11.5340246 L19.008568,11.5340246 Z M0.991511556,6.46578103 L17.0754734,6.46578103 L20,6.46578103 L10.9856458,0 L11.9994273,3.97926968 L0.988926646,3.97926968 L0.991511556,6.46578103 L0.991511556,6.46578103 L0.991511556,6.46578103 Z" id="形状"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

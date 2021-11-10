@@ -1,0 +1,37 @@
+.wrap {
+  padding: 16px;
+  font-size: 14px;
+  text-align: center;
+  user-select: none;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 320ms;
+  animation-fill-mode: both;
+
+  &.small {
+    .icon {
+      font-size: 60px;
+    }
+  }
+}
+
+.box {
+  margin: 32px 0;
+  color: #78798e;
+}
+
+.image {
+  .icon {
+    font-size: 78px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

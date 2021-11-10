@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="531px" height="567px" viewBox="0 0 531 567" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#2899E3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#5AC7FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#2899E3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#5AC7FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#2899E3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#5AC7FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-27备份-8" transform="translate(-998.000000, -137.000000)">
+            <g id="Group" transform="translate(996.774743, 135.000000)">
+                <circle id="椭圆形备份-2" fill="url(#linearGradient-1)" cx="403.225257" cy="546" r="23"></circle>
+                <rect id="矩形备份-28" fill="url(#linearGradient-2)" transform="translate(491.725257, 31.000000) rotate(-34.000000) translate(-491.725257, -31.000000) " x="444.225257" y="26" width="95" height="10" rx="5"></rect>
+                <rect id="矩形备份-29" fill="url(#linearGradient-3)" transform="translate(25.500000, 528.992365) scale(1, -1) rotate(34.000000) translate(-25.500000, -528.992365) " x="-3" y="525.992365" width="57" height="6" rx="3"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

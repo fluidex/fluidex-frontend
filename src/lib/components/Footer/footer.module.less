@@ -1,0 +1,162 @@
+@black-light: #292d36;
+
+.footer-wrapper {
+  background-color: @black-light;
+  color: #bcbcbc;
+  text-align: center;
+  min-width: 1200px;
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 15px 0 6px;
+  box-sizing: border-box;
+
+  ul {
+    display: flex;
+    margin-bottom: 24px;
+
+    li {
+      margin-right: 60 * 0.75px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  a {
+    color: #bcbcbc;
+    text-decoration: none;
+    margin-bottom: 5px;
+
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    color: #bcbcbc;
+    margin: 0;
+    text-align: left;
+    line-height: 1.6;
+    width: 1000px;
+  }
+
+  .right {
+    margin-top: -60px;
+    a {
+      padding-right: 20px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    img {
+      width: 20px;
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .wechat-box {
+      position: relative;
+      display: inline-block;
+      padding-right: 20px;
+      .wechat-icon {
+        position: relative;
+        cursor: pointer;
+        & + canvas {
+          position: absolute;
+          top: -150px;
+          right: -50px;
+          background-size: cover;
+          width: 130px;
+          height: 130px;
+          // background-image: url("./assets/icon-qr.png");
+          display: none;
+          padding: 5px;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+          background-color: #ffffff;
+        }
+        &:hover {
+          & + canvas {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .responsive {
+    min-width: auto;
+    .container {
+      align-items: center;
+      flex-direction: column-reverse;
+      height: 150px;
+
+      ul {
+        margin-bottom: 10px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+
+        li {
+          margin-right: 0;
+        }
+      }
+
+      p {
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+        padding: 0 15px;
+      }
+
+      .right {
+        margin-bottom: 8px;
+        margin-top: 0;
+        .wechat-box {
+          padding-right: 30px;
+        }
+        > a {
+          padding-right: 30px;
+          &:last-of-type {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1600px) and (min-width: 1200px) {
+  .container {
+    min-width: 1200px;
+    margin: 0 50px;
+  }
+}

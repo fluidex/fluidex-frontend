@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          # cache: 'yarn'
+          # cache-dependency-path: yarn.lock
+
+      - name: Cache node_modules
+        id: yarn_cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
+
+      - name: yarn install
+        if: steps.yarn_cache.outputs.cache-hit != 'true'
+        run:
+          yarn install
+
+      - run: yarn add typescript
+
+      - run: npx eslint src/
+
+#       - uses: reviewdog/action-eslint@v1
+#         with:
+#           reporter: github-pr-review # Change reporter.
+#           eslint_flags: 'src/'

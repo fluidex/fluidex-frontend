@@ -57,85 +57,102 @@ function renderSpotTradeTxDetail(spotTrade) {
   const lang = store.getState().lang;
   return (
     <table>
-      <tr>
-        <th>{i18n(lang, "ORDER1_ACCOUNT_ID")}</th>
-        <th>{i18n(lang, "ORDER2_ACCOUNT_ID")}</th>
-      </tr>
-      <tr>
-        <td>
-          <Link
-            to={`/explorer/account/${spotTrade.order1_account_id}`}
-            className={styles.linkText}
-          >
-            {spotTrade.order1_account_id}
-          </Link>
-        </td>
-        <td>
-          <Link
-            to={`/explorer/account/${spotTrade.order2_account_id}`}
-            className={styles.linkText}
-          >
-            {spotTrade.order2_account_id}
-          </Link>
-        </td>
-      </tr>
-
-      <tr>
-        <th>{i18n(lang, "TOKEN_ID_1_TO_2")}</th>
-        <th>{i18n(lang, "TOKEN_ID_2_TO_1")}</th>
-      </tr>
-      <tr>
-        <td>
-          <Link
-            to={`/explorer/token/${spotTrade.token_id_1to2}`}
-            className={styles.linkText}
-          >
-            {spotTrade.token_id_1to2}
-          </Link>
-        </td>
-        <td>
-          <Link
-            to={`/explorer/token/${spotTrade.token_id_2to1}`}
-            className={styles.linkText}
-          >
-            {spotTrade.token_id_2to1}
-          </Link>
-        </td>
-      </tr>
-
-      <tr>
-        <th>{i18n(lang, "AMOUNT_1TO2")}</th>
-        <th>{i18n(lang, "AMOUNT_2TO1")}</th>
-      </tr>
-      <tr>
-        <td>{spotTrade.amount_1to2}</td>
-        <td>{spotTrade.amount_2to1}</td>
-      </tr>
-
-      <tr>
-        <th>{i18n(lang, "ACCOUNT1_TOKEN_SELL_OLD_BALANCE")}</th>
-        <th>{i18n(lang, "ACCOUNT1_TOKEN_SELL_NEW_BALANCE")}</th>
-        <th>{i18n(lang, "ACCOUNT1_TOKEN_BUY_OLD_BALANCE")}</th>
-        <th>{i18n(lang, "ACCOUNT1_TOKEN_BUY_NEW_BALANCE")}</th>
-      </tr>
-      <tr>
-        <td>{spotTrade.account1_token_sell_old_balance}</td>
-        <td>{spotTrade.account1_token_sell_new_balance}</td>
-        <td>{spotTrade.account1_token_buy_old_balance}</td>
-        <td>{spotTrade.account1_token_buy_new_balance}</td>
-      </tr>
-      <tr>
-        <th>{i18n(lang, "ACCOUNT2_TOKEN_SELL_OLD_BALANCE")}</th>
-        <th>{i18n(lang, "ACCOUNT2_TOKEN_SELL_NEW_BALANCE")}</th>
-        <th>{i18n(lang, "ACCOUNT2_TOKEN_BUY_OLD_BALANCE")}</th>
-        <th>{i18n(lang, "ACCOUNT2_TOKEN_BUY_NEW_BALANCE")}</th>
-      </tr>
-      <tr>
-        <td>{spotTrade.account2_token_sell_old_balance}</td>
-        <td>{spotTrade.account2_token_sell_new_balance}</td>
-        <td>{spotTrade.account2_token_buy_old_balance}</td>
-        <td>{spotTrade.account2_token_buy_new_balance}</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>{i18n(lang, "ORDER1_ACCOUNT_ID")}</th>
+          <th>{i18n(lang, "ORDER2_ACCOUNT_ID")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <Link
+              to={`/explorer/account/${spotTrade.order1_account_id}`}
+              className={styles.linkText}
+            >
+              {spotTrade.order1_account_id}
+            </Link>
+          </td>
+          <td>
+            <Link
+              to={`/explorer/account/${spotTrade.order2_account_id}`}
+              className={styles.linkText}
+            >
+              {spotTrade.order2_account_id}
+            </Link>
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th>{i18n(lang, "TOKEN_ID_1_TO_2")}</th>
+          <th>{i18n(lang, "TOKEN_ID_2_TO_1")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <Link
+              to={`/explorer/token/${spotTrade.token_id_1to2}`}
+              className={styles.linkText}
+            >
+              {spotTrade.token_id_1to2}
+            </Link>
+          </td>
+          <td>
+            <Link
+              to={`/explorer/token/${spotTrade.token_id_2to1}`}
+              className={styles.linkText}
+            >
+              {spotTrade.token_id_2to1}
+            </Link>
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th>{i18n(lang, "AMOUNT_1TO2")}</th>
+          <th>{i18n(lang, "AMOUNT_2TO1")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{spotTrade.amount_1to2}</td>
+          <td>{spotTrade.amount_2to1}</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th>{i18n(lang, "ACCOUNT1_TOKEN_SELL_OLD_BALANCE")}</th>
+          <th>{i18n(lang, "ACCOUNT1_TOKEN_SELL_NEW_BALANCE")}</th>
+          <th>{i18n(lang, "ACCOUNT1_TOKEN_BUY_OLD_BALANCE")}</th>
+          <th>{i18n(lang, "ACCOUNT1_TOKEN_BUY_NEW_BALANCE")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{spotTrade.account1_token_sell_old_balance}</td>
+          <td>{spotTrade.account1_token_sell_new_balance}</td>
+          <td>{spotTrade.account1_token_buy_old_balance}</td>
+          <td>{spotTrade.account1_token_buy_new_balance}</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th>{i18n(lang, "ACCOUNT2_TOKEN_SELL_OLD_BALANCE")}</th>
+          <th>{i18n(lang, "ACCOUNT2_TOKEN_SELL_NEW_BALANCE")}</th>
+          <th>{i18n(lang, "ACCOUNT2_TOKEN_BUY_OLD_BALANCE")}</th>
+          <th>{i18n(lang, "ACCOUNT2_TOKEN_BUY_NEW_BALANCE")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{spotTrade.account2_token_sell_old_balance}</td>
+          <td>{spotTrade.account2_token_sell_new_balance}</td>
+          <td>{spotTrade.account2_token_buy_old_balance}</td>
+          <td>{spotTrade.account2_token_buy_new_balance}</td>
+        </tr>
+      </tbody>
     </table>
   );
 }

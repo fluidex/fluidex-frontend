@@ -53,7 +53,7 @@
     "file-loader": "6.2.0",
     "fluidex.js": "Fluidex/fluidex.js#ef37a3d",
     "fs-extra": "9.1.0",
-    "html-webpack-plugin": "5.1.0",
+    "html-webpack-plugin": "5.5.0",
     "https-browserify": "^1.0.0",
     "identity-obj-proxy": "3.0.0",
     "is-wsl": "^2.2.0",

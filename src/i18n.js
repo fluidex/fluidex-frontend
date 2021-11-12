@@ -178,6 +178,38 @@ const i18n = {
     AMOUNT_1TO2: { en: "Amount 1 To 2", zh: "数量 1 到 2" },
     AMOUNT_2TO1: { en: "Amount 2 To 1", zh: "数量 2 到 1" },
 
+    ACCOUNT1_TOKEN_BUY_NEW_BALANCE: {
+      en: "Account1 Token Buy New Balance",
+      zh: "账户1购买后代币余额（之后）",
+    },
+    ACCOUNT1_TOKEN_BUY_OLD_BALANCE: {
+      en: "Account1 Token Buy Old Balance",
+      zh: "账户1购买后代币余额（之前）",
+    },
+    ACCOUNT1_TOKEN_SELL_NEW_BALANCE: {
+      en: "Account1 Token Sell New Balance",
+      zh: "账户1出售后代币余额（之后）",
+    },
+    ACCOUNT1_TOKEN_SELL_OLD_BALANCE: {
+      en: "Account1 Token Sell Old Balance",
+      zh: "账户1出售后代币余额（之前）",
+    },
+    ACCOUNT2_TOKEN_BUY_NEW_BALANCE: {
+      en: "Account2 Token Buy New Balance",
+      zh: "账户2购买后代币余额（之后）",
+    },
+    ACCOUNT2_TOKEN_BUY_OLD_BALANCE: {
+      en: "Account2 Token Buy Old Balance",
+      zh: "账户2购买后代币余额（之前）",
+    },
+    ACCOUNT2_TOKEN_SELL_NEW_BALANCE: {
+      en: "Account2 Token Sell New Balance",
+      zh: "账户2出售后代币余额（之后）",
+    },
+    ACCOUNT2_TOKEN_SELL_OLD_BALANCE: {
+      en: "Account2 Token Sell Old Balance",
+      zh: "账户2出售后代币余额（之前）",
+    },
     TOKEN_ID: { en: "Token ID", zh: "代币ID" },
     OLD_BALANCE: { en: "Old Balance", zh: "余额（之前）" },
     NEW_BALANCE: { en: "New Balance", zh: "余额（之后）" },

@@ -10,7 +10,7 @@
     "@ant-design/compatible": "^1.0.8",
     "@babel/core": "7.12.17",
     "@babel/plugin-transform-runtime": "7.13.10",
-    "@babel/runtime": "^7.13.4",
+    "@babel/runtime": "^7.16.3",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@rematch/core": "^2.0.0",
     "@rematch/immer": "^2.0.0",

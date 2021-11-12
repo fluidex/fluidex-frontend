@@ -60,7 +60,7 @@
     "jest": "26.6.3",
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "26.6.2",
-    "jest-watch-typeahead": "0.6.1",
+    "jest-watch-typeahead": "0.6.5",
     "js-cookie": "^2.2.1",
     "klinecharts": "^8.0.0-alpha6",
     "less": "^4.1.1",

@@ -14,10 +14,9 @@ const orders = {
     },
   },
   effects: {
-    async getAll({ coinPairId, config, cb }) {
+    async getAll({ coinPairId, config }) {
       const result = await apis.getMyOpenOrders({ coinPairId, config });
       this.setAll(result.data);
-      cb && cb();
     },
   },
 };

@@ -62,10 +62,7 @@ class Exchange extends Component {
     //   return history.replace(`/exchange/trade/${nextPair.arr.join('_')}`)
     // }
 
-    this.fetch().catch((err) => {
-      console.error(err);
-      this.setState({ err });
-    });
+    this.fetch();
     // TODO Need to abort the previous request
   }
 
@@ -106,6 +103,10 @@ class Exchange extends Component {
       this.saveLastVistMarketId(this.props.matchedPair.arr.join("_"));
       this.startTimer();
     }
+  }
+
+  componentWillUnmount() {
+    this.stopTimer();
   }
 
   setDefPrice = (val) => {

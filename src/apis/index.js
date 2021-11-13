@@ -1,11 +1,6 @@
 /* eslint-disabled */
 import store from "@/old_store";
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: window.API_PREFIX,
-  responseType: "json",
-});
+import api from "@/utils/request";
 
 export default api;
 

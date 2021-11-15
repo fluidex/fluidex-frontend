@@ -147,8 +147,6 @@ export default class Table extends Component {
 
   recursiveSort(data, sorterFn) {
     const { childrenColumnName } = this.props;
-    let a = data.sort(sorterFn);
-
     return data.sort(sorterFn).map((item) =>
       item[childrenColumnName]
         ? {
@@ -196,7 +194,6 @@ export default class Table extends Component {
       footer,
       loading,
       size,
-      dataSource,
     } = this.props;
 
     const { data } = this.state;

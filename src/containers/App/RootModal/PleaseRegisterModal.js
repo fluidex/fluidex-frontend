@@ -5,10 +5,27 @@ import React, { useCallback } from "react";
 import { connect } from "react-redux";
 
 const i18n = (lang, ...args) => trans("PLEASE_REGISTER_MODAL", lang, ...args);
+const TestnetsEnum = Object.freeze({
+  Mainnet: "1",
+  Kovan: "42",
+  Ropsten: "3",
+  Rinkeby: "4",
+  Goerli: "5",
+});
 
-const PleaseRegisterModal = ({ lang, onClose, registerUser }) => {
+const PleaseRegisterModal = ({
+  lang,
+  onClose,
+  testnet,
+  registerUser,
+  registerGoerliUser,
+}) => {
   const handleRegisterButtonClick = useCallback(() => {
-    registerUser();
+    if (testnet === TestnetsEnum.Goerli) {
+      registerGoerliUser();
+    } else {
+      registerUser();
+    }
     onClose();
   }, []);
 
@@ -32,10 +49,12 @@ const PleaseRegisterModal = ({ lang, onClose, registerUser }) => {
 
 const mapStateToProps = (state) => ({
   lang: state.lang,
+  testnet: state.user.testnet,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   registerUser: dispatch.user.registerUser,
+  registerGoerliUser: dispatch.user.registerGoerliUser,
 });
 
 export default connect(

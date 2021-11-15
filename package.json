@@ -131,6 +131,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "start:goerli": "env-cmd -f .env.goerli node scripts/start.js",
     "build": "CI=false && node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint --ext .js --ext .jsx src",
@@ -205,6 +206,7 @@
     ]
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.0",
     "lint-staged": ">=10",

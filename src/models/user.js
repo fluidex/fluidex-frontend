@@ -4,7 +4,11 @@ import { getUserDetails, registerUser } from "../apis";
 import { getIsConnected } from "./ethereum";
 import { MODAL_TYPE } from "./rootModal";
 
-const defaultState = { id: null, displayedName: null };
+const defaultState = {
+  id: null,
+  displayedName: null,
+  testnet: process.env.REACT_APP_TESTNET,
+};
 
 export const UNAUTHORIZED_STATES = {
   NOT_CONNECTED: "notConnected",
@@ -15,6 +19,7 @@ const user = {
   state: { ...defaultState },
   reducers: {
     setDetails: (state, payload) => ({ ...state, ...payload }),
+    setTestnet: (state, testnet) => ({ ...state, testnet }),
   },
   effects: (dispatch) => ({
     initUser(payload, { ethereum }) {
@@ -44,10 +49,15 @@ const user = {
         });
       }
     },
+    registerGoerliUser(payload, { lang }) {
+      Toast.error(trans("PLEASE_REGISTER_MODAL", lang, "NOT_SUPPORTED_YET"));
+      dispatch.user.setDetails({
+        ...defaultState,
+      });
+    },
     registerUser(payload, { ethereum, lang }) {
       const address = ethereum.address;
       const layer2Address = ethereum.layer2Address;
-
       if (address && layer2Address) {
         // The way this API returns an error is different to that of the others.
         // Usually, we get a 200 response, and we check for data.error from the response.

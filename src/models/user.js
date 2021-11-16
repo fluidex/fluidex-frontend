@@ -7,7 +7,7 @@ import { MODAL_TYPE } from "./rootModal";
 const defaultState = {
   id: null,
   displayedName: null,
-  testnet: process.env.REACT_APP_TESTNET,
+  network: process.env.REACT_APP_NETWORK,
 };
 
 export const UNAUTHORIZED_STATES = {
@@ -19,7 +19,7 @@ const user = {
   state: { ...defaultState },
   reducers: {
     setDetails: (state, payload) => ({ ...state, ...payload }),
-    setTestnet: (state, testnet) => ({ ...state, testnet }),
+    setNetwork: (state, network) => ({ ...state, network }),
   },
   effects: (dispatch) => ({
     initUser(payload, { ethereum }) {

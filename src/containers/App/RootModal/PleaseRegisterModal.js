@@ -17,12 +17,12 @@ const NetworksEnum = Object.freeze({
 const PleaseRegisterModal = ({
   lang,
   onClose,
-  testnet,
+  network,
   registerMocknetUser,
   registerTestnetUser,
 }) => {
   const handleRegisterButtonClick = useCallback(() => {
-    if (testnet === NetworksEnum.Mocknet) {
+    if (network === NetworksEnum.Mocknet) {
       registerMocknetUser();
     } else {
       registerTestnetUser();
@@ -50,7 +50,7 @@ const PleaseRegisterModal = ({
 
 const mapStateToProps = (state) => ({
   lang: state.lang,
-  testnet: state.user.testnet,
+  network: state.user.network,
 });
 
 const mapDispatchToProps = (dispatch) => ({

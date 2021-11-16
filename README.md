@@ -10,6 +10,8 @@
 ## Setup
 
 - npm install
+- git submodule update --init --recursive
+- npm run compilecontract
 - npm run build
 - Put the dist directory in the target folder
 - Can refer to deploy.sh

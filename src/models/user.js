@@ -1,6 +1,6 @@
 import { Toast } from "@/components";
 import { trans } from "@/i18n";
-import { getUserDetails, registerUser } from "../apis";
+import { getUserDetails, registerMocknetUser } from "../apis";
 import { getIsConnected } from "./ethereum";
 import { MODAL_TYPE } from "./rootModal";
 
@@ -49,19 +49,19 @@ const user = {
         });
       }
     },
-    registerGoerliUser(payload, { lang }) {
+    registerTestnetUser(payload, { lang }) {
       Toast.error(trans("PLEASE_REGISTER_MODAL", lang, "NOT_SUPPORTED_YET"));
       dispatch.user.setDetails({
         ...defaultState,
       });
     },
-    registerUser(payload, { ethereum, lang }) {
+    registerMocknetUser(payload, { ethereum, lang }) {
       const address = ethereum.address;
       const layer2Address = ethereum.layer2Address;
       if (address && layer2Address) {
         // The way this API returns an error is different to that of the others.
         // Usually, we get a 200 response, and we check for data.error from the response.
-        registerUser({ address, layer2Address })
+        registerMocknetUser({ address, layer2Address })
           .then(({ data }) => {
             dispatch.user.setDetails({
               id: data.user_id,

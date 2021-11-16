@@ -45,7 +45,7 @@ export const updateBalance = ({ asset, delta }) =>
     delta,
     business_id: Date.now(),
   });
-export const registerUser = ({ address, layer2Address }) =>
+export const registerMocknetUser = ({ address, layer2Address }) =>
   api.post(`/api/exchange/action/registeruser/`, {
     l1_address: address,
     l2_pubkey: layer2Address,

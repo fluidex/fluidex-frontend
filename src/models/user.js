@@ -1,10 +1,14 @@
 import { Toast } from "@/components";
 import { trans } from "@/i18n";
-import { getUserDetails, registerUser } from "../apis";
+import { getUserDetails, registerMocknetUser } from "../apis";
 import { getIsConnected } from "./ethereum";
 import { MODAL_TYPE } from "./rootModal";
 
-const defaultState = { id: null, displayedName: null };
+const defaultState = {
+  id: null,
+  displayedName: null,
+  network: process.env.REACT_APP_NETWORK,
+};
 
 export const UNAUTHORIZED_STATES = {
   NOT_CONNECTED: "notConnected",
@@ -15,6 +19,7 @@ const user = {
   state: { ...defaultState },
   reducers: {
     setDetails: (state, payload) => ({ ...state, ...payload }),
+    setNetwork: (state, network) => ({ ...state, network }),
   },
   effects: (dispatch) => ({
     initUser(payload, { ethereum }) {
@@ -44,14 +49,19 @@ const user = {
         });
       }
     },
-    registerUser(payload, { ethereum, lang }) {
+    registerTestnetUser(payload, { lang }) {
+      Toast.error(trans("PLEASE_REGISTER_MODAL", lang, "NOT_SUPPORTED_YET"));
+      dispatch.user.setDetails({
+        ...defaultState,
+      });
+    },
+    registerMocknetUser(payload, { ethereum, lang }) {
       const address = ethereum.address;
       const layer2Address = ethereum.layer2Address;
-
       if (address && layer2Address) {
         // The way this API returns an error is different to that of the others.
         // Usually, we get a 200 response, and we check for data.error from the response.
-        registerUser({ address, layer2Address })
+        registerMocknetUser({ address, layer2Address })
           .then(({ data }) => {
             dispatch.user.setDetails({
               id: data.user_id,

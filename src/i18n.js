@@ -22,6 +22,10 @@ const i18n = {
       en: "Please register before proceeding",
       zh: "请注册后再执行下一步操作",
     },
+    NOT_SUPPORTED_YET: {
+      en: "Not supported yet",
+      zh: "暂不支持",
+    },
     MODAL_BUTTON_TEXT: {
       en: "Register",
       zh: "注册",

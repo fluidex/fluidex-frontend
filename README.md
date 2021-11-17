@@ -11,6 +11,7 @@
 
 - npm install
 - git submodule update --init --recursive
+- git pull --recurse-submodules
 - npm run compilecontract
 - npm run build
 - Put the dist directory in the target folder

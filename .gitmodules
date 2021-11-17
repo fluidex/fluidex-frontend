@@ -1,0 +1,3 @@
+[submodule "src/contracts.demo"]
+	path = src/contracts
+	url = git@github.com:fluidex/contracts.demo.git

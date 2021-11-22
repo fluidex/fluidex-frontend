@@ -17,6 +17,7 @@ export const TYPE_MAP = {
   TRANSFER: "transfer_tx",
   NOP: "nop",
 };
+
 class BlockDetail extends Component {
   state = {
     activeExpanedRow: null,
@@ -95,6 +96,7 @@ class BlockDetail extends Component {
   render() {
     const { lang, blockId } = this.props;
     const { loading, blockInfo } = this.state;
+    const NETWORK_BASE_URL = process.env.REACT_APP_NETWORK_BASE_URL;
     const columns = [
       {
         key: "hash",
@@ -171,7 +173,16 @@ class BlockDetail extends Component {
               <Col lg={8}>
                 <h4>{i18n(lang, "L1_TX_HASH")}</h4>
               </Col>
-              <Col lg={16}>{blockInfo.l1_tx_hash}</Col>
+              <Col lg={16}>
+                <a
+                  href={`${NETWORK_BASE_URL}tx/${blockInfo.l1_tx_hash}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.linkText}
+                >
+                  {blockInfo.l1_tx_hash}
+                </a>
+              </Col>
             </>
           )}
         </Row>

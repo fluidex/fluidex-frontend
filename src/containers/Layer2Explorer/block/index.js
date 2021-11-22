@@ -96,7 +96,7 @@ class BlockDetail extends Component {
   render() {
     const { lang, blockId } = this.props;
     const { loading, blockInfo } = this.state;
-    const NETWORK_BASE_URL = process.env.REACT_APP_NETWORK_BASE_URL;
+    const L1_EXPLORER_BASE_URL = process.env.REACT_APP_L1_EXPLORER_BASE_URL;
     const columns = [
       {
         key: "hash",
@@ -175,7 +175,7 @@ class BlockDetail extends Component {
               </Col>
               <Col lg={16}>
                 <a
-                  href={`${NETWORK_BASE_URL}tx/${blockInfo.l1_tx_hash}`}
+                  href={`${L1_EXPLORER_BASE_URL}tx/${blockInfo.l1_tx_hash}`}
                   target="_blank"
                   rel="noreferrer"
                   className={styles.linkText}

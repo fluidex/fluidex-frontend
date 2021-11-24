@@ -8,6 +8,7 @@ import { trans } from "@/i18n";
 const i18n = (lang, ...args) => trans("ACCOUNT", lang, ...args);
 
 const Account = ({ lang, user }) => {
+  const L1_EXPLORER_BASE_URL = process.env.REACT_APP_L1_EXPLORER_BASE_URL;
   return (
     <Descriptions
       className={styles.container}
@@ -19,7 +20,13 @@ const Account = ({ lang, user }) => {
         {user.id}
       </Descriptions.Item>
       <Descriptions.Item label={i18n(lang, "ADDRESS_LABEL")}>
-        {user.address}
+        <a
+          href={`${L1_EXPLORER_BASE_URL}address/${user.address}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {user.address}
+        </a>
       </Descriptions.Item>
       <Descriptions.Item label={i18n(lang, "LAYER_2_ADDRESS_LABEL")}>
         {user.layer2Address}

@@ -29,6 +29,7 @@ class AccountDetail extends PureComponent {
   render() {
     const { lang } = this.props;
     const { user } = this.state;
+    const L1_EXPLORER_BASE_URL = process.env.REACT_APP_L1_EXPLORER_BASE_URL;
     return (
       <Descriptions
         className={styles.container}
@@ -37,7 +38,13 @@ class AccountDetail extends PureComponent {
         title={i18n(lang, "ACCOUNT_DETAILS_TITLE")}
       >
         <Descriptions.Item label={i18n(lang, "ACCOUNT_ID_LABEL")}>
-          {user.id}
+          <a
+            href={`${L1_EXPLORER_BASE_URL}address/${user.address}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {user.address}
+          </a>
         </Descriptions.Item>
         <Descriptions.Item label={i18n(lang, "ADDRESS_LABEL")}>
           {user.l1_address}

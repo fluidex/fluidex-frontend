@@ -38,16 +38,16 @@ class AccountDetail extends PureComponent {
         title={i18n(lang, "ACCOUNT_DETAILS_TITLE")}
       >
         <Descriptions.Item label={i18n(lang, "ACCOUNT_ID_LABEL")}>
+          {user.id}
+        </Descriptions.Item>
+        <Descriptions.Item label={i18n(lang, "ADDRESS_LABEL")}>
           <a
-            href={`${L1_EXPLORER_BASE_URL}address/${user.address}`}
+            href={`${L1_EXPLORER_BASE_URL}address/${user.l1_address}`}
             target="_blank"
             rel="noreferrer"
           >
-            {user.address}
+            {user.l1_address}
           </a>
-        </Descriptions.Item>
-        <Descriptions.Item label={i18n(lang, "ADDRESS_LABEL")}>
-          {user.l1_address}
         </Descriptions.Item>
         <Descriptions.Item label={i18n(lang, "LAYER_2_ADDRESS_LABEL")}>
           {user.l2_pubkey}

@@ -10,6 +10,24 @@ const defaultState = {
   network: process.env.REACT_APP_NETWORK,
 };
 
+export const NetworksEnum = Object.freeze({
+  Mocknet: "0x0",
+  Mainnet: "0x1",
+  Kovan: "0x2a",
+  Ropsten: "0x3",
+  Rinkeby: "0x4",
+  Goerli: "0x5",
+});
+
+export const NetworksNameEnum = Object.freeze({
+  "0x0": "Mocknet",
+  "0x1": "Mainnet",
+  "0x2a": "Kovan",
+  "0x3": "Ropsten",
+  "0x4": "Rinkeby",
+  "0x5": "Goerli",
+});
+
 export const UNAUTHORIZED_STATES = {
   NOT_CONNECTED: "notConnected",
 };

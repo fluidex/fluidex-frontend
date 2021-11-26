@@ -45,7 +45,7 @@ function notice(content, type, duration = 3, onClose) {
         if (onClose) {
           onClose();
         }
-        instance.destroy();
+        instance && instance.destroy();
         instance = null;
         messageInstance = null;
       },

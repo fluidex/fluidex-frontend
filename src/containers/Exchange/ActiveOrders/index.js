@@ -79,10 +79,12 @@ class ActiveOrders extends Component {
 
     this.clearSubscriptionAndAsync("abortRequest");
 
-    this.props.fetchOrders({
-      coinPairId: this.props.coinPair.id,
-      config: { params },
-      cb: () => {
+    this.props
+      .fetchOrders({
+        coinPairId: this.props.coinPair.id,
+        config: { params },
+      })
+      .then(() => {
         this.timer = setTimeout(() => this.fetch(), 3 * 1000);
         this.setState({
           loading: false,
@@ -91,8 +93,7 @@ class ActiveOrders extends Component {
             total: this.props.total,
           },
         });
-      },
-    });
+      });
   };
 
   handleCancel = (event) => {

@@ -16,7 +16,21 @@ class MarketTrades extends Component {
     list: [],
   };
 
+  componentDidMount() {
+    destroyStatus = false;
+    this.fetch(this.props.coinPair.id);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.coinPair.id !== this.props.coinPair.id) {
+      this.timer && clearTimeout(this.timer);
+      this.setState({ loading: true });
+      this.fetch(this.props.coinPair.id);
+    }
+  }
+
   componentWillUnmount() {
+    this.timer && clearTimeout(this.timer);
     destroyStatus = true;
     this.abortRequest && this.abortRequest("force abort");
   }
@@ -50,19 +64,6 @@ class MarketTrades extends Component {
         this.timer = setTimeout(this.fetch, 3e3);
       });
   };
-
-  componentDidMount() {
-    destroyStatus = false;
-    this.fetch(this.props.coinPair.id);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.coinPair.id !== this.props.coinPair.id) {
-      this.timer && clearTimeout(this.timer);
-      this.setState({ loading: true });
-      this.fetch(this.props.coinPair.id);
-    }
-  }
 
   render() {
     const { coinPair, lang } = this.props;

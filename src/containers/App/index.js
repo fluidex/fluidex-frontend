@@ -1,76 +1,20 @@
 import { Spin } from "components";
 import NoticeBar from "components/NoticeBar";
 import Header from "components/Header";
-import Account from "containers/Account";
-import Assets from "containers/Assets";
-import Exchange from "containers/Exchange";
-import InternalTransactions from "containers/InternalTransactions";
-import Layer2Explorer from "containers/Layer2Explorer";
-import Layer2BlockDetail from "containers/Layer2Explorer/block";
-import Layer2TokenDetail from "containers/Layer2Explorer/token";
-import Layer2AccountDetail from "containers/Layer2Explorer/account";
-import Markets from "containers/Markets";
-import Orders from "containers/Orders";
+
 import cookie from "js-cookie";
-import React, { PureComponent, useState } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import styles from "./app.module.scss";
 import RootModal from "./RootModal";
-
-const authRouteMapStateToProps = (state) => ({
-  layer2Address: state.ethereum.layer2Address,
-});
-
-const authRouteMapDispatchToProps = (dispatch) => ({
-  checkAuthorizationAndMaybeShowModal:
-    dispatch.user.checkAuthorizationAndMaybeShowModal,
-});
-
-const AuthRoute = connect(
-  authRouteMapStateToProps,
-  authRouteMapDispatchToProps
-)(
-  ({
-    component: Component,
-    layer2Address,
-    checkAuthorizationAndMaybeShowModal,
-    ...rest
-  }) => {
-    const [firstRender, setFirstRender] = useState(true);
-
-    if (!layer2Address) {
-      if (!firstRender) {
-        if (
-          !checkAuthorizationAndMaybeShowModal({
-            locallyStoredCredentialsOnly: true,
-          })
-        ) {
-          return null;
-        }
-      } else {
-        // We need to wait for store subscriber to get layer 2 address from local storage.
-        // TODO: investigate proper wait strategy for store subscribers.
-        setTimeout(() => setFirstRender(false), 500);
-        return null;
-      }
-    }
-
-    return (
-      <Route
-        {...rest}
-        render={(props) => {
-          return <Component {...props} />;
-        }}
-      />
-    );
-  }
-);
-
+import Routes from "./routes";
+import request from "@/utils/request";
 class App extends PureComponent {
   state = {
     loading: true,
     error: null,
+    pathname: "",
   };
 
   initLang = () => {
@@ -113,9 +57,14 @@ class App extends PureComponent {
     };
   }
 
-  renderBody = () => {
-    const lastVistMarketId = Exchange.getLastVistMarketId();
+  setPathname = (pathname) => {
+    if (this.state.pathname) {
+      request.clear(); // clear all pending request
+    }
+    this.setState({ pathname });
+  };
 
+  renderBody = () => {
     if (this.state.loading) {
       return (
         <Spin loading={true} hasOverlay={false}>
@@ -130,57 +79,7 @@ class App extends PureComponent {
     //   )
     // }
 
-    return (
-      <React.Fragment>
-        <Switch>
-          <Redirect from="/" strict exact to={`/exchange/markets`} />
-          <Redirect
-            from="/exchange"
-            strict
-            exact
-            to={`/exchange/trade/${lastVistMarketId}`}
-          />
-          <Redirect
-            from="/trade"
-            strict
-            exact
-            to={`/exchange/trade/${lastVistMarketId}`}
-          />
-          <Redirect
-            from="/exchange/trade"
-            strict
-            exact
-            to={`/exchange/trade/${lastVistMarketId}`}
-          />
-          <Redirect from="/markets" strict exact to={"/exchange/markets"} />
-          <Route
-            path="/exchange/trade/:baseCoin\_:quoteCoin"
-            component={Exchange}
-          />
-          <Route path="/exchange/markets" component={Markets} />
-          <AuthRoute path="/exchange/assets" component={Assets} />
-          <AuthRoute path="/exchange/orders" component={Orders} />
-          <AuthRoute path="/exchange/account" component={Account} />
-          <AuthRoute
-            path="/exchange/internal_transactions"
-            component={InternalTransactions}
-          />
-          <Route path="/explorer" exact component={Layer2Explorer} />
-          <Route
-            path="/explorer/block/:blockId"
-            component={Layer2BlockDetail}
-          />
-          <Route
-            path="/explorer/token/:tokenId"
-            component={Layer2TokenDetail}
-          />
-          <Route
-            path="/explorer/account/:accountId"
-            component={Layer2AccountDetail}
-          />
-        </Switch>
-      </React.Fragment>
-    );
+    return <Routes setPathname={this.setPathname} />;
   };
 
   render() {

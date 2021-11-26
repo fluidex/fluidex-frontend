@@ -3,16 +3,9 @@ import { Modal } from "antd";
 import { Button } from "components";
 import React, { useCallback } from "react";
 import { connect } from "react-redux";
+import { NetworksEnum } from "@/models/user";
 
 const i18n = (lang, ...args) => trans("PLEASE_REGISTER_MODAL", lang, ...args);
-const NetworksEnum = Object.freeze({
-  Mocknet: "0",
-  Mainnet: "1",
-  Kovan: "42",
-  Ropsten: "3",
-  Rinkeby: "4",
-  Goerli: "5",
-});
 
 const PleaseRegisterModal = ({
   lang,

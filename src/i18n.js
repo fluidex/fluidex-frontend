@@ -67,6 +67,16 @@ const i18n = {
     OK: { en: "OK", zh: "确认" },
     CANCEL: { en: "CANCEL", zh: "取消" },
   },
+  NOTICEBAR: {
+    TEXT: {
+      en: "You are currently connected to Fluidex on",
+      zh: "您当前已连接到Fluidex通过网络",
+    },
+    LINK_TEXT: {
+      en: "click here to switch to",
+      zh: "点击这里切换到",
+    },
+  },
   HEADER: {
     FAUCET: { en: "Faucet", zh: "水龙头" },
     LAYER_1_FAUCET: { en: "LAYER 1 FAUCET", zh: "Layer1 区块水龙头" },

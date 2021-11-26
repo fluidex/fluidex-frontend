@@ -34,6 +34,7 @@ const ethereum = {
     layer2Signature: null,
     hasWeb3: false,
     hasFluidexContract: false,
+    currentNetwork: null,
   },
   reducers: {
     setEthereum: (state, payload) => ({ ...state, ...payload }),
@@ -117,6 +118,18 @@ const ethereum = {
     tryGettingConnectedMetaMaskAccount() {
       return dispatch.ethereum.requestMetaMaskForAccounts("eth_accounts");
     },
+    async switchEthereumChain(chainId) {
+      try {
+        await metamask.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId }],
+        });
+      } catch (switchError) {
+        Toast.loading(switchError.message, Toast.LONG);
+        // This error code indicates that the chain has not been added to MetaMask.
+        // handle other "switch" errors
+      }
+    },
     tryConnectingToMetaMask() {
       return dispatch.ethereum
         .requestMetaMaskForAccounts("eth_requestAccounts")
@@ -145,7 +158,9 @@ const ethereum = {
         console.error("MetaMask is not detected.");
         return;
       }
-      metamask.on("chainChanged", () => {
+      this.setEthereum({ currentNetwork: metamask.chainId });
+      metamask.on("chainChanged", (chainId) => {
+        this.setEthereum({ currentNetwork: chainId });
         Toast.loading(i18n(lang, "PLEASE_SIGN_LAYER2_ADDRESS"), Toast.LONG);
         dispatch.ethereum.refreshLayer2Credentials();
       });

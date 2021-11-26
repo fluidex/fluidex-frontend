@@ -1,4 +1,5 @@
 import { Spin } from "components";
+import NoticeBar from "components/NoticeBar";
 import Header from "components/Header";
 import Account from "containers/Account";
 import Assets from "containers/Assets";
@@ -186,6 +187,7 @@ class App extends PureComponent {
     return (
       <BrowserRouter basename={process.env.BASE_PATH}>
         <div className={styles.app}>
+          <NoticeBar />
           <Header />
           <div className={styles.main}>{this.renderBody()}</div>
           <RootModal />

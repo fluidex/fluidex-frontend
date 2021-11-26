@@ -1,5 +1,5 @@
 import { Toast } from "@/components";
-import FluidexAbi from "@/contracts/Fluidex.json";
+import FluidexAbi from "@/contracts/artifacts/contracts/FluiDex.sol/FluiDexDemo.json";
 import { trans } from "@/i18n";
 import { Account, get_CREATE_L2_ACCOUNT_MSG } from "fluidex.js";
 import Web3 from "web3";

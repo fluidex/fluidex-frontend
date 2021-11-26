@@ -136,7 +136,8 @@
     "test": "node scripts/test.js",
     "lint": "eslint --ext .js --ext .jsx src",
     "prepare": "husky install",
-    "postinstall": "node scripts/react-dev-utils-4-fix.js"
+    "postinstall": "node scripts/react-dev-utils-4-fix.js",
+    "compilecontract": "cd src/contracts && yarn && npx hardhat compile"
   },
   "browserslist": {
     "production": [

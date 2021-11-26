@@ -1,0 +1,83 @@
+# This workflow will build and push a new container image to Amazon ECR
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "deploy version"
+        required: true
+      env:
+        description: "env to deploy, default is dev"
+        required: false
+        default: "dev"
+      user:
+        description: "user who exec this workflow"
+        required: true
+        default: "zhengqi zhang"
+      change_desciption:
+        description: "brief description of changes"
+        required: true
+        default: "some cool feature"
+
+name: build and deploy
+
+jobs:
+  build_push_image2acr:
+    name: build push image
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout and get new tag
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.5.0"
+      - name: Login to TCR
+        uses: aliyun/acr-login@v1
+        with:
+          login-server: ccr.ccs.tencentyun.com/fluidex/fluidex-web
+          username: ${{ secrets.TENCENTYUN_USER }}
+          password: ${{ secrets.TENCENTYUN_PWD }}
+      - name: Build and push image
+        env:
+          # IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: ${{ github.event.inputs.version }}
+          PRIVATE_ACCESS_TOKEN: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+          ssh_identity_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          eval $(ssh-agent -s)
+          echo "$ssh_identity_key" | tr -d '\r' | ssh-add -
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          ssh-add -l
+          yarn install
+          git submodule update --init --recursive
+          yarn compilecontract
+          make sync-kline
+          yarn run build
+          docker build -t ccr.ccs.tencentyun.com/fluidex/fluidex-web:$IMAGE_TAG -f ./docker/Dockerfile .
+          docker push ccr.ccs.tencentyun.com/fluidex/fluidex-web:$IMAGE_TAG
+          echo "::set-output name=image::ccr.ccs.tencentyun.com/fluidex/fluidex-web:$IMAGE_TAG"
+  deploy_to_ec2:
+    needs: build_push_image2acr
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout and get new tag
+        uses: actions/checkout@v2
+      - name: Make shell executable
+        run: chmod +x ./docker/fluidex-web.sh
+
+      - name: connect server
+        env:
+          ssh_identity_key: ${{ secrets.DEV_PEM }}
+          version: ${{ github.event.inputs.version }}
+          env: ${{ github.event.inputs.env }}
+        run: |
+          eval $(ssh-agent -s)
+          echo "$ssh_identity_key" | tr -d '\r' | ssh-add -
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          ssh-add -l
+          ./docker/fluidex-web.sh deploy "$version" "$env"
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
